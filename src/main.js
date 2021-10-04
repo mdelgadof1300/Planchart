@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import "../src/resources/_CSS/estilo.css";
+import router from "./router";
+import store from "./store";
 import Unicon from "vue-unicons";
 import {
   uniLocationPoint,
@@ -11,4 +12,8 @@ import {
 
 Unicon.add([uniLocationPoint, uniWhatsapp, uniEnvelope, uniClock]);
 
-createApp(App).use(Unicon).mount("#app");
+createApp(App)
+  .use(Unicon)
+  .use(store)
+  .use(router)
+  .mount("#app");
