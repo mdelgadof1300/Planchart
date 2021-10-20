@@ -1,70 +1,84 @@
 <template>
-  <div class="formulario">
-    <form @submit="crear">
-      <div class="field">
-        <label class="label">Correo</label>
-        <div class="control">
-          <input
-            v-model="email"
-            class="input"
-            type="email"
-            placeholder="Correo..."
-          />
+  <section class="hero is-primary is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <form @submit="crear" class="box">
+              <div class="field">
+                <label class="label">Nombre</label>
+                <div class="control">
+                  <input
+                    v-model="nombre"
+                    class="input"
+                    type="text"
+                    placeholder="Nombre completo..."
+                    maxlength="30"
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Correo</label>
+                <div class="control">
+                  <input
+                    v-model="email"
+                    class="input"
+                    type="email"
+                    placeholder="Correo..."
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Contraseña</label>
+                <div class="control">
+                  <input
+                    v-model="contraseña"
+                    class="input"
+                    type="password"
+                    placeholder="Contraseña..."
+                    minlength="8"
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Teléfono</label>
+                <div class="control">
+                  <input
+                    v-model="telefono"
+                    class="input"
+                    type="number"
+                    placeholder="Celular o fijo"
+                    minlength="10"
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Dirección</label>
+                <div class="control">
+                  <GMapAutocomplete
+                    placeholder="Escribe tu dirección"
+                    class="input"
+                    @place_changed="cambio"
+                  >
+                  </GMapAutocomplete>
+                </div>
+              </div>
+              <button class="button is-primary">Registrarse</button>
+            </form>
+          </div>
         </div>
       </div>
-      <div class="field">
-        <label class="label">Contraseña</label>
-        <div class="control">
-          <input
-            v-model="contraseña"
-            class="input"
-            type="password"
-            placeholder="Contraseña..."
-            minlength="8"
-          />
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Nombre</label>
-        <div class="control">
-          <input
-            v-model="nombre"
-            class="input"
-            type="text"
-            placeholder="Nombre completo..."
-            maxlength="30"
-          />
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Teléfono</label>
-        <div class="control">
-          <input
-            v-model="contraseña"
-            class="input"
-            type="number"
-            placeholder="Celular o fijo"
-            minlength="10"
-          />
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Dirección</label>
-        <div class="control">
-          <input
-            v-model="direccion"
-            class="input"
-            type="text"
-            placeholder="Dirección completa"
-          />
-        </div>
-      </div>
-      <button class="button is-primary">Registrarse</button>
-    </form>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script>
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc, getFirestore } from "firebase/firestore";
+const auth = getAuth();
+const db = getFirestore();
+import router from "../router";
 export default {
   data() {
     return {
@@ -78,22 +92,41 @@ export default {
   methods: {
     crear(e) {
       e.preventDefault();
-      if (this.validar()) console.log(this.email, this.contraseña);
+      if (this.validar()) {
+        createUserWithEmailAndPassword(auth, this.email, this.contraseña)
+          .then(async (userCredential) => {
+            await setDoc(doc(db, "usuarios", userCredential.user.uid), {
+              telefono: this.telefono,
+              direccion: this.direccion,
+              nombre: this.nombre,
+              email: this.email,
+            });
+            alert("Te has registrado exitosamente.");
+            router.push("Login");
+          })
+          .catch((error) => {
+            console.log(error);
+            alert("Correo registrado previamente o contraseña invalida.");
+          });
+      }
     },
     validar() {
       if (
         !(
-          this.email &&
-          this.contraseña &&
-          this.nombre &&
+          this.email.length &&
+          this.contraseña.length &&
+          this.nombre.length &&
           this.telefono &&
-          this.direccion
+          this.direccion.length
         )
       ) {
-        alert("Campos obligatorios");
+        alert("Todos los campos obligatorios");
         return false;
       }
       return true;
+    },
+    cambio(e) {
+      this.direccion = e.formatted_address;
     },
   },
 };

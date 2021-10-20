@@ -17,7 +17,6 @@
     <div class="footer-center">
       <div>
         <p>
-          <i class="fa fa-map-marker"></i>
           <span>Tecpanecas #134 Mza 327. Lte. 8</span> Ecatepec de Morelos,
           México
         </p>

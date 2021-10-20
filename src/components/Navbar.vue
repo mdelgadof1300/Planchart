@@ -26,10 +26,10 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-success">
+            <a class="button is-light">
               <router-link to="/registro">Registro</router-link>
             </a>
-            <a class="button is-light">
+            <a class="button is-link">
               <router-link to="/login">Ingreso</router-link>
             </a>
           </div>
