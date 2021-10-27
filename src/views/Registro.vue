@@ -65,6 +65,10 @@
                 </div>
               </div>
               <button class="button is-primary">Registrarse</button>
+              <hr />
+              <button class="button is-info">
+                <a href="login">¿Ya tienes cuenta? Inicia sesión</a>
+              </button>
             </form>
           </div>
         </div>

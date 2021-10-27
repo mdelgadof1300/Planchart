@@ -43,6 +43,10 @@
               </div>
               <div class="field">
                 <button class="button is-success">Ingresar</button>
+                <hr />
+                <button class="button is-info">
+                  <a href="registro"> Regístrate</a>
+                </button>
               </div>
             </form>
           </div>

@@ -2,63 +2,65 @@
   <div class="galeria">
     <section class="layer plans">
       <h1 id="galeria">Paquetes</h1>
-      <section>
-        <section class="third lift plan-tier" onclick="location.href='#';">
-          <h4>Individual</h4>
-          <h5>
-            <sup class="superscript">$</sup><span class="plan-price">12</span
-            ><sub>MXN</sub>
-          </h5>
-          <ul>
-            <li><strong>Por prenda</strong> a partir de 6 piezas</li>
-            <li><strong>Recolecta y entrega</strong> sin costo extra.</li>
-            <li><strong>Recolecta</strong> de 1 a 3 horas.</li>
-            <li><strong>Entrega</strong> de 24 a 48 horas.</li>
-            <li><strong>Equipo</strong> profesional.</li>
-          </ul>
+      <a href="registro"
+        ><section>
+          <section class="third lift plan-tier" onclick="location.href='#';">
+            <h4>Individual</h4>
+            <h5>
+              <sup class="superscript">$</sup><span class="plan-price">12</span
+              ><sub>MXN</sub>
+            </h5>
+            <ul>
+              <li><strong>Por prenda</strong> a partir de 6 piezas</li>
+              <li><strong>Recolecta y entrega</strong> sin costo extra.</li>
+              <li><strong>Recolecta</strong> de 1 a 3 horas.</li>
+              <li><strong>Entrega</strong> de 24 a 48 horas.</li>
+              <li><strong>Equipo</strong> profesional.</li>
+            </ul>
+          </section>
+          <section
+            class="third lift plan-tier callout"
+            onclick="location.href='#';"
+          >
+            <h6>Gran familia</h6>
+            <h4>Oferta especial</h4>
+            <h5>
+              <sup class="superscript">$</sup><span class="plan-price">10</span
+              ><sub>MXN</sub>
+            </h5>
+
+            <p class="early-adopter-price">Antes</p>
+            <br />
+            <del>$15MXN</del>
+
+            <ul>
+              <li><strong>Por prenda</strong> a partir de la séptima docena</li>
+              <li><strong>Recolecta y entrega</strong> sin costo extra.</li>
+              <li><strong>Recolecta</strong> de 1 a 3 horas.</li>
+              <li><strong>Entrega</strong> de 24 a 48 horas.</li>
+              <li><strong>Equipo</strong> profesional.</li>
+              <li><strong>Portatrajes</strong> personalizado.</li>
+            </ul>
+          </section>
+
+          <section class="third lift plan-tier" onclick="location.href='#';">
+            <h4>Mini familia</h4>
+            <h5>
+              <sup class="superscript">$</sup><span class="plan-price">11</span
+              ><sub>MXN</sub>
+            </h5>
+
+            <ul>
+              <li><strong>Por prenda</strong> a partir de la cuarta docena</li>
+              <li><strong>Recolecta y entrega</strong> sin costo extra.</li>
+              <li><strong>Recolecta</strong> de 1 a 3 horas.</li>
+              <li><strong>Entrega</strong> de 24 a 48 horas.</li>
+              <li><strong>Equipo</strong> profesional.</li>
+            </ul>
+          </section>
+          <div style="clear: both"></div>
         </section>
-        <section
-          class="third lift plan-tier callout"
-          onclick="location.href='#';"
-        >
-          <h6>Gran familia</h6>
-          <h4>Oferta especial</h4>
-          <h5>
-            <sup class="superscript">$</sup><span class="plan-price">10</span
-            ><sub>MXN</sub>
-          </h5>
-
-          <p class="early-adopter-price">Antes</p>
-          <br />
-          <del>$15MXN</del>
-
-          <ul>
-            <li><strong>Por prenda</strong> a partir de la séptima docena</li>
-            <li><strong>Recolecta y entrega</strong> sin costo extra.</li>
-            <li><strong>Recolecta</strong> de 1 a 3 horas.</li>
-            <li><strong>Entrega</strong> de 24 a 48 horas.</li>
-            <li><strong>Equipo</strong> profesional.</li>
-            <li><strong>Portatrajes</strong> personalizado.</li>
-          </ul>
-        </section>
-
-        <section class="third lift plan-tier" onclick="location.href='#';">
-          <h4>Mini familia</h4>
-          <h5>
-            <sup class="superscript">$</sup><span class="plan-price">11</span
-            ><sub>MXN</sub>
-          </h5>
-
-          <ul>
-            <li><strong>Por prenda</strong> a partir de la cuarta docena</li>
-            <li><strong>Recolecta y entrega</strong> sin costo extra.</li>
-            <li><strong>Recolecta</strong> de 1 a 3 horas.</li>
-            <li><strong>Entrega</strong> de 24 a 48 horas.</li>
-            <li><strong>Equipo</strong> profesional.</li>
-          </ul>
-        </section>
-        <div style="clear: both"></div>
-      </section>
+      </a>
     </section>
   </div>
 </template>
