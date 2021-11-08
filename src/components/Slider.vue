@@ -1,17 +1,4 @@
 <template>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-
   <section id="container-slider">
     <a @click="fntExecuteSlide('prev')" class="arrowPrev"
       ><i class="fas fa-chevron-circle-left"></i

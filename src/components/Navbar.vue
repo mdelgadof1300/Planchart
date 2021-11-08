@@ -1,22 +1,42 @@
 <template>
-  <div id="header">
-    <nav>
-      <div class="logo">
-        <img src="../assets/planchartLogo.png" style="width: inherit" />
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="../assets/planchartLogo.png" width="50" />
+      </a>
+      <a
+        role="button"
+        class="navbar-burger"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="#"> Inicio </a>
+        <a class="navbar-item" href="#sobre"> Nosotros </a>
+        <a class="navbar-item" href="#galeria"> Precios </a>
+        <a class="navbar-item" href="#contacto"> Contacto </a>
       </div>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@400;500&display=swap"
-        rel="stylesheet"
-      />
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#sobre">Nosotros</a></li>
-        <li><a href="#galeria">Precios</a></li>
-        <li><a href="#contacto" class="menuContacto">Contacto</a></li>
-        <li><router-link to="/registro">Login</router-link></li>
-      </ul>
-    </nav>
-  </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-light">
+              <router-link to="/registro">Registro</router-link>
+            </a>
+            <a class="button is-link">
+              <router-link to="/login">Ingreso</router-link>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
 <script>
 export default {};

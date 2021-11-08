@@ -22,6 +22,31 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Registro.vue"),
   },
+  {
+    path: "/login",
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Login.vue"),
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Dashboard.vue"),
+  },
+  {
+    path: "/dashboarduser",
+    name: "DashboardUser",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/DashboardUser.vue"),
+  },
+
+  {
+    path: "/perfil",
+    name: "Perfil",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Perfil.vue"),
+  },
 ];
 
 const router = createRouter({

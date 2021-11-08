@@ -17,7 +17,6 @@
     <div class="footer-center">
       <div>
         <p>
-          <i class="fa fa-map-marker"></i>
           <span>Tecpanecas #134 Mza 327. Lte. 8</span> Ecatepec de Morelos,
           México
         </p>
@@ -41,19 +40,6 @@
         que te ayudará a simplificar tu vida con el planchado de tu ropa
         mediante paquetes a precios muy accesibles.
       </p>
-      <!--<div class="footer-icons">
-        <a href="#"
-          ><i class="fa fa-facebook"
-            ><img src="https://placekitten.com/g/25/25" alt="" /></i
-        ></a>
-        <a href="#"
-          ><i class="fa fa-facebook"
-            ><img src="https://placekitten.com/g/25/25" alt="" /></i
-        ></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-github"></i></a>
-      </div> -->
     </div>
   </footer>
 </template>
@@ -70,7 +56,7 @@ export default {};
   width: 100%;
   text-align: left;
   font: bold 16px sans-serif;
-  padding: 55px 50px;
+  padding: 420px 50px 50px;
 }
 
 .footer-distributed .footer-left,
