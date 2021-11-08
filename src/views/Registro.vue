@@ -106,7 +106,11 @@ export default {
               email: this.email,
             });
             alert("Te has registrado exitosamente.");
+<<<<<<< HEAD
             router.push("login");
+=======
+            router.push("Login");
+>>>>>>> 02668438741ed21af430ec2b10c02d585eaa7e2d
           })
           .catch((error) => {
             console.log(error);
