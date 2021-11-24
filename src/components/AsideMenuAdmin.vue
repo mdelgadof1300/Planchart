@@ -9,9 +9,18 @@
           <span class="icon"><i class="fa fa-table"></i></span> Usuarios
           registrados
         </a>
-        <a href="#" class="is-active">
-          <span class="icon"><i class="fa fa-user"></i></span> Perfil
-        </a>
+        <router-link to="/perfil">
+          <a href="#" class="is-active">
+            <span class="icon"><i class="fa fa-user"></i></span> Perfil
+          </a>
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/salir">
+          <a href="#" class="is-active">
+            <span class="icon"><i class="fa fa-sign-out"></i></span> Salir
+          </a>
+        </router-link>
       </li>
     </ul>
   </aside>

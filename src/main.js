@@ -11,8 +11,9 @@ import {
 } from "vue-unicons/dist/icons";
 
 import "../node_modules/bulma/css/bulma.min.css";
-import { initializeApp } from "firebase/app";
 import VueGoogleMaps from "@fawmi/vue-google-maps";
+
+import { initializeApp } from "firebase/app";
 
 /* info de la base en la consola */
 var firebaseConfig = {
