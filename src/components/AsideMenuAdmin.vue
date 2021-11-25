@@ -5,10 +5,17 @@
     <p class="menu-label is-hidden-touch">Menu</p>
     <ul class="menu-list">
       <li>
-        <a href="#" class="is-active">
-          <span class="icon"><i class="fa fa-table"></i></span> Usuarios
-          registrados
-        </a>
+        <router-link to="/dashboard">
+          <a href="#" class="is-active">
+            <span class="icon"><i class="fa fa-table"></i></span> Usuarios
+            registrados
+          </a>
+        </router-link>
+        <router-link to="/pedidos">
+          <a href="#" class="is-active">
+            <span class="icon"><i class="fa fa-book"></i></span> Pedidos de hoy
+          </a>
+        </router-link>
         <router-link to="/perfil">
           <a href="#" class="is-active">
             <span class="icon"><i class="fa fa-user"></i></span> Perfil

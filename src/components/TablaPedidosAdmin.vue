@@ -1,31 +1,45 @@
 <template>
   <table class="table is-bordered is-striped is-fullwidth">
     <tr class="th is-selected">
+      <th>Usuario</th>
       <th>Pedido</th>
       <th>Fecha</th>
       <th>Forma de pago</th>
-      <th>Estado</th>
       <th>Total</th>
+      <th>Estado</th>
+      <th></th>
     </tr>
     <tr v-for="pedido in this.misPedidos" :key="pedido.id">
+      <td>{{ this.getUsuario(pedido.usuario) }}</td>
       <td>{{ this.getNombrePaquete(pedido.paquete) }}</td>
       <td>{{ pedido.fecha.toDate().toISOString().split("T")[0] }}</td>
       <td>Efectivo a contra-entrega</td>
-      <td>{{ pedido.estado }}</td>
       <td>{{ `$${this.getPrecioPäquete(pedido.paquete)}` }}</td>
+      <td>{{ pedido.estado }}</td>
+      <td>
+        <button
+          :disabled="pedido.estado === 'Entregado'"
+          @click="this.entregado(pedido.id)"
+          class="button is-primary"
+        >
+          Marcar como entregado
+        </button>
+      </td>
     </tr>
   </table>
 </template>
 
 <script>
-import AsideMenuUser from "../components/AsideMenuUser.vue";
+import AsideMenuUser from "./AsideMenuUser.vue";
 import {
   collection,
   getDocs,
   getFirestore,
+  doc,
   addDoc,
   query,
-  where,
+  updateDoc,
+  getDoc,
 } from "firebase/firestore";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 const db = getFirestore();
@@ -38,6 +52,7 @@ export default {
     return {
       opciones: [],
       misPedidos: [],
+      usuarios: [],
     };
   },
   methods: {
@@ -48,6 +63,13 @@ export default {
     getPrecioPäquete(id) {
       let paquete = this.opciones.filter((elem) => id === elem.id);
       return paquete[0].precio;
+    },
+    async entregado(id) {
+      const docRef = doc(db, "ordenes", id);
+      if (docRef) {
+        await updateDoc(docRef, { estado: "Entregado" });
+        await this.actualizar();
+      }
     },
     cerrarSesion() {
       signOut(auth)
@@ -80,7 +102,7 @@ export default {
         this.cambios = null;
         if (user) {
           const ordenesRef = collection(db, "ordenes");
-          const q = query(ordenesRef, where("usuario", "==", user.uid));
+          const q = query(ordenesRef);
           const querySnapshot = await getDocs(q);
           querySnapshot.forEach((doc) => {
             let tipo = doc.data();
@@ -93,6 +115,13 @@ export default {
         }
       });
     },
+    getUsuario(uid) {
+      let usuario = this.usuarios.filter((user) => {
+        console.log(user);
+        return user.id === uid;
+      });
+      return usuario[0].nombre + `(${usuario[0].email})`;
+    },
   },
 
   async mounted() {
@@ -103,6 +132,14 @@ export default {
       let tipo = doc.data();
       tipo = { ...tipo, id: doc.id };
       this.opciones.push(tipo);
+    });
+
+    const citiesRef = collection(db, "usuarios");
+    const querySnapshot2 = await getDocs(citiesRef);
+    querySnapshot2.forEach((doc) => {
+      let tipo = doc.data();
+      tipo = { ...tipo, id: doc.id };
+      this.usuarios.push(tipo);
     });
   },
 };

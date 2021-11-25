@@ -49,6 +49,14 @@ const routes = [
     },
   },
   {
+    path: "/pedidos",
+    name: "Pedidos",
+    component: () => import("../views/Pedidos.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: "/dashboarduser",
     name: "DashboardUser",
     component: () => import("../views/DashboardUser.vue"),

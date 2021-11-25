@@ -110,6 +110,7 @@ export default {
             usuario: user.uid,
             paquete: id,
             fecha: new Date(),
+            estado: "En proceso",
           });
           await this.$refs.tabla.actualizar();
         } else {
